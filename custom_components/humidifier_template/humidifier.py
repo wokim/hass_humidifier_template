@@ -301,7 +301,7 @@ class TemplateHumidifier(TemplateEntity, HumidifierEntity, RestoreEntity):
             if humidity := previous_state.attributes.get(
                 ATTR_HUMIDITY, DEFAULT_HUMIDITY
             ):
-                self._target_temp = humidity
+                self._target_humidity = humidity
 
             if current_temperature := previous_state.attributes.get(
                 ATTR_CURRENT_HUMIDITY
@@ -508,4 +508,3 @@ class TemplateHumidifier(TemplateEntity, HumidifierEntity, RestoreEntity):
                         self._attr_action = HumidifierAction.IDLE
             except ValueError:
                 _LOGGER.error("Could not parse action from %s", action)
-
